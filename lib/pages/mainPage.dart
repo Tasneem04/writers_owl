@@ -17,13 +17,11 @@ class MainHomeReadingPage extends StatefulWidget {
 
 class _MainHomeReadingPageState extends State<MainHomeReadingPage>
     with SingleTickerProviderStateMixin {
-
   late TabController _controller;
   late FirebaseAuth _auth = FirebaseAuth.instance;
   late FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   var firbaseUser = FirebaseAuth.instance.currentUser;
-
 
   @override
   void initState() {
@@ -80,8 +78,8 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
                 ListTile(
                   title: Text('Sign Out'),
                   leading: Icon(Icons.clear),
-                  onTap: () {
-                    _auth.signOut();
+                  onTap: () async {
+                    await _auth.signOut();
                     Future.delayed(Duration(milliseconds: 400), () {
                       Navigator.push(
                           context,
@@ -113,7 +111,7 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      'Find a Story\nTo Read',
+                      'Plan Your Day :',
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
