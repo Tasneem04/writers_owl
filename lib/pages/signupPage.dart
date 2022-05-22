@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:writers_owl/data/colors.dart';
 import 'package:writers_owl/data/user.dart';
+import 'package:writers_owl/pages/loginPage.dart';
 import 'package:writers_owl/pages/mainPage.dart';
 import 'package:writers_owl/widgets/socialButton.dart';
 
@@ -49,11 +51,12 @@ class _SignUpPageState extends State<SignUpPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: ColorsMain.mainWidgetColor,size: 30),
+        iconTheme: IconThemeData(color: ColorsMain.mainWidgetColor, size: 30),
       ),
       body: Container(
         padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: AssetImage('images/back12.jpg'))),
+        decoration: BoxDecoration(image: DecorationImage(
+            fit: BoxFit.cover, image: AssetImage('images/back12.jpg'))),
         width: double.infinity,
         height: double.infinity,
         child: SingleChildScrollView(
@@ -80,8 +83,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(flex: 1, child: SocialButton('FaceBook')),
-                      Expanded(flex: 1, child: SocialButton('Twitter'))
+                      Expanded(flex: 1,
+                          child: SocialButton('FaceBook', Colors.blue)),
+                      Expanded(flex: 1,
+                          child: SocialButton(
+                              'Twitter', Colors.lightBlueAccent))
                     ],
                   ),
                 ),
@@ -90,11 +96,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 Center(
                     child: Text(
-                  'or sign up with email',
-                  style: TextStyle(
-                      color: ColorsMain.mainTextColor,
-                      fontWeight: FontWeight.bold),
-                )),
+                      'or sign up with email',
+                      style: TextStyle(
+                          color: ColorsMain.mainTextColor,
+                          fontWeight: FontWeight.bold),
+                    )),
                 SizedBox(
                   height: 20,
                 ),
@@ -105,28 +111,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ' Password', TextInputType.text, passwordController),
                 TextFieldForm('Confurm Password...', TextInputType.text,
                     confimPassController),
-                Row(
-                  children: [
-                    Radio(
-                      value: 1,
-                      groupValue: groupValue,
-                      onChanged: (int? value) {
-                        setState(() {
-                          selectedGroupValue(value!);
-                        });
-                      },
-                    ),
-                    Text('Writer'),
-                    Radio(
-                      value: 2,
-                      groupValue: groupValue,
-                      onChanged: (int? value) {
-                        selectedGroupValue(value!);
-                      },
-                    ),
-                    Text('Reader')
-                  ],
-                ),
+
                 SizedBox(
                   height: 20,
                 ),
@@ -159,7 +144,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         text: 'Already have account? ',
                         style: TextStyle(color: ColorsMain.mainTextColor),
                         children: [
-                          TextSpan(
+                          TextSpan(recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context)=>LoginPage()));
+                            },
                               text: 'Log in',
                               style: TextStyle(
                                   color: ColorsMain.mainWidgetColor,
@@ -173,14 +162,14 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Future signUp(
-      nameText, emailText, passwordText, confirmPassText, isWriter) async {
+  Future signUp(nameText, emailText, passwordText, confirmPassText,
+      isWriter) async {
     try {
       await _auth
           .createUserWithEmailAndPassword(
-              email: emailText, password: passwordText)
+          email: emailText, password: passwordText)
           .then((value) =>
-              {postDetailsToFireStore(nameText, emailText, isWriter)});
+      {postDetailsToFireStore(nameText, emailText, isWriter)});
     } catch (e) {}
   }
 

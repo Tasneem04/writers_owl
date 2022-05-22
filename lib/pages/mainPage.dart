@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:writers_owl/data/categories.dart';
+import 'package:writers_owl/data/colors.dart';
 import 'package:writers_owl/pages/addnote.dart';
 import 'package:writers_owl/pages/startedmain.dart';
 
@@ -116,7 +117,7 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
                   padding: const EdgeInsets.all(8.0),
                   child: OutlinedButton(
                     child: Text('Add Now',
-                        style: TextStyle(
+                        style: TextStyle(color: ColorsMain.mainWidgetColor,
                             fontSize: 20, fontWeight: FontWeight.bold)),
                     onPressed: () {
                       Future.delayed(Duration.zero, () {
