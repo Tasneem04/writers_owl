@@ -4,9 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:writers_owl/data/categories.dart';
+import 'package:writers_owl/pages/addnote.dart';
 import 'package:writers_owl/pages/startedmain.dart';
-import 'package:writers_owl/widgets/maintext.dart';
-import 'package:writers_owl/widgets/searchwidget.dart';
 
 class MainHomeReadingPage extends StatefulWidget {
   const MainHomeReadingPage({Key? key}) : super(key: key);
@@ -45,7 +44,7 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
   //   leanth = catogriesRef.doc(firbaseUser?.uid).get();
   //   await leanth;
   // }
-
+  PageStorageBucket bucket = PageStorageBucket();
   List<Categories> categories = [
     Categories('Fantasy', 1),
     Categories('Reality', 2),
@@ -54,47 +53,44 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      initialIndex: 0,
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
-        drawer: Drawer(
-          child: Container(
-            child: Column(
-              children: [
-                UserAccountsDrawerHeader(
-                  accountName: Text('accountName'),
-                  accountEmail: Text('accountEmail'),
-                  currentAccountPicture: CircleAvatar(
-                    backgroundColor: Colors.redAccent,
-                  ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      drawer: Drawer(
+        child: Container(
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text('accountName'),
+                accountEmail: Text('accountEmail'),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.redAccent,
                 ),
-                ListTile(
-                  title: Text('Sign Out'),
-                  leading: Icon(Icons.clear),
-                  onTap: () async {
-                    await _auth.signOut();
-                    Future.delayed(Duration(milliseconds: 400), () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => StartedPage()));
-                    });
-                  },
-                )
-              ],
-            ),
+              ),
+              ListTile(
+                title: Text('Sign Out'),
+                leading: Icon(Icons.clear),
+                onTap: () async {
+                  await _auth.signOut();
+                  Future.delayed(Duration(milliseconds: 400), () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => StartedPage()));
+                  });
+                },
+              )
+            ],
           ),
         ),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
+      ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: PageStorage(
+          bucket: bucket,
           child: SingleChildScrollView(
             child: Container(
               decoration: BoxDecoration(
@@ -118,41 +114,21 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
                       ),
                     ),
                   ),
-                  SearchWidget(),
-                  MainText('Categories'),
-                  Container(
-                    child: TabBar(
-                        controller: _controller,
-                        padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
-                        indicator: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.greenAccent.shade100),
-                        isScrollable: true,
-                        unselectedLabelColor: Colors.grey,
-                        labelColor: Colors.green,
-                        tabs: [
-                          Tab(
-                            text: 'Fantasy',
-                          ),
-                          Tab(
-                            text: 'Realty',
-                          ),
-                          Tab(
-                            text: 'Adventure',
-                          ),
-                          //     Tab(text: 'Crime')
-                          // ,Tab(text: 'Romance'),
-                        ]),
-                  ),
-                  Container(
-                    width: double.maxFinite,
-                    color: Colors.grey.shade300,
-                    height: 200,
-                    child: TabBarView(controller: _controller, children: [
-                      Text('fantasy'),
-                      Text('reality'),
-                      Text('adventure')
-                    ]),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: OutlinedButton(
+                      child: Text('Add Now',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      onPressed: () {
+                        Future.delayed(Duration.zero, () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddNotePage()));
+                        });
+                      },
+                    ),
                   ),
                   SizedBox(
                     height: 200,
