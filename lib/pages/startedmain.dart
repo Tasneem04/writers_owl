@@ -28,7 +28,7 @@ class _StartedPageState extends State<StartedPage> {
         height: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('images/back13.jpg'), fit: BoxFit.cover)),
+                image: AssetImage('images/back12.jpg'), fit: BoxFit.cover)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -54,7 +54,7 @@ class _StartedPageState extends State<StartedPage> {
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Read your story here',
+                    'Achive More ',
                     style: TextStyle(
                         color: ColorsMain.mainTextColor,
                         fontSize: 20,

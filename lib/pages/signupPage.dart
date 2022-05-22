@@ -49,11 +49,11 @@ class _SignUpPageState extends State<SignUpPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.blueGrey),
+        iconTheme: IconThemeData(color: ColorsMain.mainWidgetColor,size: 30),
       ),
       body: Container(
         padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(color: ColorsMain.backgroundColor),
+        decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: AssetImage('images/back12.jpg'))),
         width: double.infinity,
         height: double.infinity,
         child: SingleChildScrollView(

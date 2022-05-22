@@ -1,17 +1,23 @@
 class UserData {
+  String? idUser;
 
-  String? idUser ;
-  String? nameUser ;
-  String? passwordUser ;
-  String? emailUser ;
-  bool? isWriter ;
+  String? nameUser;
+
+  String? passwordUser;
+
+  String? emailUser;
+
+  bool? isWriter;
+
+  String? notes;
 
   UserData(
-      { this.idUser,
-       this.nameUser,
-       this.passwordUser,
-       this.emailUser,
-       this.isWriter});
+      {this.idUser,
+      this.nameUser,
+      this.passwordUser,
+      this.emailUser,
+      this.isWriter,
+      this.notes});
 
   Map<String, dynamic> toMap() {
     return {
@@ -19,7 +25,8 @@ class UserData {
       'uname': nameUser,
       'uemail': emailUser,
       'upassword': passwordUser,
-      'uwriter': isWriter
+      'uwriter': isWriter,
+      'unote': notes
     };
   }
 }
