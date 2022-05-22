@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "688795835198",
+    "project_id": "writer-owl",
+    "storage_bucket": "writer-owl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688795835198:android:5d7437859ab1eadb146a6f",
+        "android_client_info": {
+          "package_name": "com.example.writers_owl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688795835198-ni02mopvq1v0l89n0du84aubki4eg78n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuNkJa6tEyUUuGPPfyk5As7yl-Jf4Rk2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688795835198-ni02mopvq1v0l89n0du84aubki4eg78n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
