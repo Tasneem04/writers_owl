@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 20,
             ),
             CustomButton('Log in', () {
-              login('test6@gmail.com', 'test678');
+              login(emailController.text, passwordController.text);
             })
           ],
         ),
