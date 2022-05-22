@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +29,8 @@ class _AddNotePageState extends State<AddNotePage> {
         backgroundColor: Colors.transparent,
       ),
       body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage('images/back12.jpg'),fit: BoxFit.cover)),
         padding: EdgeInsets.all(16),
         width: double.infinity,
         height: double.infinity,

@@ -87,13 +87,13 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
         ),
       ),
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: double.infinity,
+        height: double.infinity,
         child: SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('images/back15.jpg'),
+                    image: AssetImage('images/back12.jpg'),
                     fit: BoxFit.cover)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,9 +127,7 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
                       });
                     },
                   ),
-                ),
-                SizedBox(
-                  height: 200,
+
                 ),
               ],
             ),
