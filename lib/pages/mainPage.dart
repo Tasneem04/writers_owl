@@ -22,9 +22,6 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
   late FirebaseAuth _auth = FirebaseAuth.instance;
   late FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  late CollectionReference catogriesRef =
-      FirebaseFirestore.instance.collection('catogries');
-
   var firbaseUser = FirebaseAuth.instance.currentUser;
 
 
