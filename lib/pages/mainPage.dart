@@ -89,52 +89,49 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: PageStorage(
-          bucket: bucket,
-          child: SingleChildScrollView(
-            child: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('images/back15.jpg'),
-                      fit: BoxFit.cover)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 70,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'Plan Your Day :',
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('images/back15.jpg'),
+                    fit: BoxFit.cover)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 70,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Plan Your Day :',
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: OutlinedButton(
-                      child: Text('Add Now',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                      onPressed: () {
-                        Future.delayed(Duration.zero, () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AddNotePage()));
-                        });
-                      },
-                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: OutlinedButton(
+                    child: Text('Add Now',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                    onPressed: () {
+                      Future.delayed(Duration.zero, () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddNotePage()));
+                      });
+                    },
                   ),
-                  SizedBox(
-                    height: 200,
-                  ),
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 200,
+                ),
+              ],
             ),
           ),
         ),
