@@ -45,19 +45,14 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
   //   leanth = catogriesRef.doc(firbaseUser?.uid).get();
   //   await leanth;
   // }
-  PageStorageBucket bucket = PageStorageBucket();
-  List<Categories> categories = [
-    Categories('Fantasy', 1),
-    Categories('Reality', 2),
-    Categories('Adventure', 3),
-  ];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: ColorsMain.mainWidgetColor),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -65,11 +60,11 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
         child: Container(
           child: Column(
             children: [
-              UserAccountsDrawerHeader(
+              UserAccountsDrawerHeader(decoration: BoxDecoration(color: ColorsMain.mainWidgetColor),
                 accountName: Text('accountName'),
                 accountEmail: Text('accountEmail'),
                 currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.redAccent,
+                  backgroundColor: Colors.white,
                 ),
               ),
               ListTile(
@@ -90,48 +85,46 @@ class _MainHomeReadingPageState extends State<MainHomeReadingPage>
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        child: SingleChildScrollView(
-          child: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('images/back12.jpg'),
-                    fit: BoxFit.cover)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 70,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Plan Your Day :',
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('images/back12.jpg'), fit: BoxFit.cover)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 70,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'Plan Your Day :',
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: OutlinedButton(
-                    child: Text('Add Now',
-                        style: TextStyle(color: ColorsMain.mainWidgetColor,
-                            fontSize: 20, fontWeight: FontWeight.bold)),
-                    onPressed: () {
-                      Future.delayed(Duration.zero, () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AddNotePage()));
-                      });
-                    },
-                  ),
-
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: OutlinedButton(
+                  child: Text('Add Task',
+                      style: TextStyle(
+                          color: ColorsMain.mainWidgetColor,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold)),
+                  onPressed: () {
+                    Future.delayed(Duration.zero, () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddNotePage()));
+                    });
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

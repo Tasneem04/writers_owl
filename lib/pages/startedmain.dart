@@ -18,10 +18,6 @@ class _StartedPageState extends State<StartedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
       body: Container(
         padding: EdgeInsets.all(16),
         width: double.infinity,
@@ -39,18 +35,13 @@ class _StartedPageState extends State<StartedPage> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 50,
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: ColorsMain.mainWidgetColor,
+                    height: 80,
                   ),
                   SizedBox(
                     height: 16,
                   ),
                   Text(
-                    'Owl',
+                    'Owl Planner',
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                   ),
                   Text(
@@ -87,7 +78,7 @@ class _StartedPageState extends State<StartedPage> {
                                           builder: (context) => LoginPage()));
                                 },
                               text: 'Log in',
-                              style: TextStyle(fontWeight: FontWeight.bold))
+                              style: TextStyle(fontWeight: FontWeight.bold,color: ColorsMain.mainWidgetColor))
                         ]),
                   )
                 ],
