@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,12 @@ class AddNotePage extends StatefulWidget {
 }
 
 class _AddNotePageState extends State<AddNotePage> {
+
+  FirebaseFirestore fireStore = FirebaseFirestore.instance;
+
   TextEditingController titleController = TextEditingController();
   TextEditingController detialController = TextEditingController();
-
+    
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
